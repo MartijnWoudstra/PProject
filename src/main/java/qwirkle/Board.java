@@ -15,15 +15,12 @@ import java.util.Random;
  */
 public class Board {
 
-    public static final int BOARD_ROWS = 10; //TODO Discuss during protocol meeting
-    public static final int BOARD_COLUMS = 10; //TODO Discuss during protocol meeting
-
     private List<Tile> stack;
     private Tile[][] matrix;
 
     public Board() {
         stack = new ArrayList<>();
-        matrix = new Tile[BOARD_ROWS][BOARD_COLUMS]; //TODO Discuss during protocol meeting
+        matrix = new Tile[Game.BOARD_COLUMS][Game.BOARD_ROWS]; //TODO Discuss during protocol meeting
         fillStack();
     }
 
@@ -70,5 +67,33 @@ public class Board {
             shuffleStack();
             return result;
         }
+    }
+
+    /**
+     * Converts a row and colum to an index
+     * @param row Int row
+     * @param col Int colum
+     * @return Int index of the row and colum
+     */
+    public int index(int row, int col){
+        return (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
+    }
+
+    /**
+     * Converts an index to a row and colum
+     * These values are stored in an int[].
+     * int[0] = row;
+     * int[1] = column;
+     * @param index Int index
+     * @return Int[] corresponding col and row to the index
+     */
+    public int[] indexToRowCol (int index){
+        int colIndexInArray = 0;
+        int rowIndexInArray = 1;
+        int [] ans = new int[2]; //{col, row}
+        ans[colIndexInArray]= (index / Game.BOARD_COLUMS) + 1;
+        int remainder = index - (ans[colIndexInArray] - 1) * (Game.BOARD_COLUMS);
+        ans[rowIndexInArray] = remainder + 1;
+        return ans;
     }
 }
