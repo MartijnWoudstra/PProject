@@ -1,4 +1,4 @@
-package main.java.qwirkle.main.java.qwirkle.move;
+package main.java.qwirkle.move;
 
 import main.java.qwirkle.Board;
 import main.java.qwirkle.exception.EmptyTileStackException;

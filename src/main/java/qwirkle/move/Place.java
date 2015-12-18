@@ -1,4 +1,4 @@
-package main.java.qwirkle.main.java.qwirkle.move;
+package main.java.qwirkle.move;
 
 /**
  * Created by Martijn on 18-Dec-15.
