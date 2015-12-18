@@ -78,7 +78,7 @@ public class Board {
      * @return Int index of the row and colum
      */
     //@ ensures \result == (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
-    public int index(int row, int col){
+    public static int index(int row, int col){
         return (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
     }
 
@@ -92,7 +92,7 @@ public class Board {
      */
     //@ensures \result[0] == (index / Game.BOARD_COLUMS) + 1
     //      && \result[1] == index - (\result[0] - 1) * (Game.BOARD_COLUMS);
-    public int[] indexToRowCol (int index){
+    public static int[] indexToRowCol (int index){
         int colIndexInArray = 0;
         int rowIndexInArray = 1;
         int [] ans = new int[2]; //{col, row}
@@ -100,5 +100,9 @@ public class Board {
         int remainder = index - (ans[colIndexInArray] - 1) * (Game.BOARD_COLUMS);
         ans[rowIndexInArray] = remainder + 1;
         return ans;
+    }
+
+    public int getStackSize(){
+        return stack.size();
     }
 }
