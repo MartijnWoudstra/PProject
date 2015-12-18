@@ -19,7 +19,7 @@ public class Board {
     private Tile[][] matrix;
 
     public Board() {
-        stack = new ArrayList<>();
+        stack = new ArrayList<Tile>();
         matrix = new Tile[Game.BOARD_COLUMS][Game.BOARD_ROWS]; //TODO Discuss during protocol meeting
         fillStack();
     }
