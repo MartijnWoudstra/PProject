@@ -15,16 +15,16 @@ public enum Color {
 
     private char id;
 
-    Color (char identifier){
+    Color(char identifier) {
         id = identifier;
     }
 
-    public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
+    public char getCharFromTile() { //TODO discuss types of enum during protocol meeting
         return id;
     }
 
     @Deprecated //Only used for testing
-    public static Color getRandomColor(){
+    public static Color getRandomColor() {
         Random random = new Random();
         return colorList.get(random.nextInt(colorList.size()));
     }

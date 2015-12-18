@@ -13,10 +13,20 @@ public class Tile {
         this.shape = arg1;
     }
 
+    /**
+     * Returns the Color of of the Tile
+     * @return Color color object
+     */
+    //@pure
     public Color getColor() {
         return color;
     }
 
+    /**
+     * Returns the Shape of the Tile
+     * @return Shape shape object
+     */
+    //@pure
     public Shape getShape() {
         return shape;
     }

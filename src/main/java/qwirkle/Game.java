@@ -5,6 +5,8 @@ package main.java.qwirkle;
  */
 public class Game {
 
+    public static final int MAX_HAND_SIZE = 6;
+
     public static void main(String[] args) {
         Board b = new Board();
     }

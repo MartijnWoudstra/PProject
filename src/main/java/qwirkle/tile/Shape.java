@@ -15,16 +15,16 @@ public enum Shape {
 
     private char id;
 
-    Shape(char identifier){
+    Shape(char identifier) {
         id = identifier;
     }
 
-    public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
+    public char getCharFromTile() { //TODO discuss types of enum during protocol meeting
         return id;
     }
 
     @Deprecated //Only used for testing
-    public static Shape getRandomShape(){
+    public static Shape getRandomShape() {
         Random rand = new Random();
         return shapeList.get(rand.nextInt(shapeList.size()));
     }
