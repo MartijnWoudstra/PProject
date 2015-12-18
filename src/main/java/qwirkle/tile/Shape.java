@@ -19,10 +19,11 @@ public enum Shape {
         id = identifier;
     }
 
-    public char getCharFromTile(){
+    public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
         return id;
     }
 
+    @Deprecated //Only used for testing
     public static Shape getRandomShape(){
         Random rand = new Random();
         return shapeList.get(rand.nextInt(shapeList.size()));

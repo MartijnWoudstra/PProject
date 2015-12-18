@@ -19,22 +19,11 @@ public enum Color {
         id = identifier;
     }
 
-    public char getCharFromTile(){
+    public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
         return id;
     }
 
-    public static char getCharFromEnum(Color color){
-        switch (color){
-            case RED: return RED.id;
-            case ORANGE: return ORANGE.id;
-            case BLUE: return BLUE.id;
-            case PURPLE: return PURPLE.id;
-            case YELLOW: return YELLOW.id;
-            case GREEN: return GREEN.id;
-            default: return '-';
-        }
-    }
-
+    @Deprecated //Only used for testing
     public static Color getRandomColor(){
         Random random = new Random();
         return colorList.get(random.nextInt(colorList.size()));
