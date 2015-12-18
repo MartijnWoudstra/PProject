@@ -29,6 +29,7 @@ public class Board {
      * All possible combinations of colors and shapes are added 3 times.
      * The stack is then shuffeled, to make sure the order is random.
      */
+    //@ ensures stack.size() == 3 * Color.values() * Shape.values();
     private void fillStack() {
         for (int i = 0; i < 3; i++) {
             for (Color c : Color.values())
@@ -44,6 +45,7 @@ public class Board {
      * Shuffles the stack.
      * Used when a player switches, or the stack is created.
      */
+    //@ ensures \old(stack.size()) == stack.size();
     private void shuffleStack() {
         long seed = System.nanoTime();
         Collections.shuffle(stack, new Random(seed));
@@ -75,6 +77,7 @@ public class Board {
      * @param col Int colum
      * @return Int index of the row and colum
      */
+    //@ ensures \result == (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
     public int index(int row, int col){
         return (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
     }
@@ -87,6 +90,8 @@ public class Board {
      * @param index Int index
      * @return Int[] corresponding col and row to the index
      */
+    //@ensures \result[0] == (index / Game.BOARD_COLUMS) + 1
+    //      && \result[1] == index - (\result[0] - 1) * (Game.BOARD_COLUMS);
     public int[] indexToRowCol (int index){
         int colIndexInArray = 0;
         int rowIndexInArray = 1;
