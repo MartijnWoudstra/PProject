@@ -16,30 +16,65 @@ import java.util.Random;
  */
 public class Board{
 
+	// @ private invariant 0 <= stack.size() < 3 * Color.values() * Shape.values();
 	private List<Tile> stack;
-	private Tile[][] matrix;
-	private Player[] players;
 
+	// @ private invariant matrix.length() == Game.BOARD_COLUMS;
+	// @ private invariant (\forall int i; 0 <= i < Game.BOARD_COLUMS; matrix[i].length() == Game.BOARD_ROWS)
+	private Tile[][] matrix;
+
+	//@ ensures {
+	// matrix.length() == Game.BOARD_COLUMS;
+	// (\forall int i; 0 <= i < Game.BOARD_COLUMS; matrix[i].length() == Game.BOARD_ROWS
+	// }
 	public Board(){
-		players = new Player[Game.MAX_PLAYERS]; //TODO add players to array
 		stack = new ArrayList<Tile>();
 		matrix = new Tile[Game.BOARD_COLUMS][Game.BOARD_ROWS]; //TODO Discuss during protocol meeting
+		reset();
+	}
+
+	/**
+	 * Method for setting up a new board.
+	 * Called by the constructor.
+	 */
+	public void reset(){
 		fillStack();
+		setEmptyMatrix();
+	}
+
+	/**
+	 * Sets the matrix to an empty matrix.
+	 * Used when board is reset.
+	 */
+	/* @ ensures \forall(
+	 	int i; 0 <= i < BOARD_COLUMS {
+	 		\forall(
+	 		int j; 0 <= j < BOARD_COLUMS;
+	 		matrix[i][j] == Tile.getEmptyTile();
+	 	}
+	*/
+	private void setEmptyMatrix(){
+		Tile tile = new Tile(Color.NONE, Shape.NONE); //HOW TO
+		for(int i = 0; i < Game.BOARD_COLUMS * Game.BOARD_ROWS; i++)
+			for(int j = 0; j < Game.BOARD_COLUMS - 1; j++)
+				matrix[i][j] = tile;
+
 	}
 
 	/**
 	 * Converts a row and colum to an index
-	 *
+	 * NOTE: First row and col are int 0
 	 * @param row
 	 * 		Int row
 	 * @param col
 	 * 		Int colum
 	 * @return Int index of the row and colum
 	 */
-	//@ ensures \result == (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
+	//@ ensures \result == (col * Game.BOARD_ROWS + row);
+	//@ requires row < Game.BOARD_ROWS && col < Game.BOARD_COLUMS;
 	//@ pure
 	public static int index(int row, int col){
-		return (col * Game.BOARD_ROWS - 1) - Game.BOARD_COLUMS - col;
+		return (row * Game.BOARD_COLUMS + col);
 	}
 
 	/**
@@ -52,15 +87,14 @@ public class Board{
 	 * 		Int index
 	 * @return Int[] corresponding col and row to the index
 	 */
-	//@ensures \result[0] == (index / Game.BOARD_COLUMS) + 1
-	//      && \result[1] == index - (\result[0] - 1) * (Game.BOARD_COLUMS);
+	// @ ensures \result[0] == index % Game.BOARD_ROWS
+	//      && \result[1] == index / Game.BOARD_ROWS;\
+	// @ requires index < (Game.BOARD_ROWS - 1) * (Game.BOARD_COLUMS - 1)
+	// @ pure
 	public static int[] indexToRowCol(int index){
-		int colIndexInArray = 0;
-		int rowIndexInArray = 1;
-		int[] ans = new int[2]; //{col, row}
-		ans[colIndexInArray] = (index / Game.BOARD_COLUMS) + 1;
-		int remainder = index - (ans[colIndexInArray] - 1) * (Game.BOARD_COLUMS);
-		ans[rowIndexInArray] = remainder + 1;
+		int[] ans = new int[2];
+		ans[0] = index / Game.BOARD_ROWS;
+		ans[1] = index % Game.BOARD_ROWS;
 		return ans;
 	}
 
@@ -69,11 +103,11 @@ public class Board{
 	 * All possible combinations of colors and shapes are added 3 times.
 	 * The stack is then shuffeled, to make sure the order is random.
 	 */
-	//@ ensures stack.size() == 3 * Color.values() * Shape.values();
+	//@ ensures \forall(int i; 0 < i < 3 * Color.getColors().length() * Shape.getShapes().length(); stack[i] != null
 	private void fillStack(){
 		for(int i = 0; i < 3; i++)
-			for(Color c : Color.values())
-				for(Shape s : Shape.values()){
+			for(Color c : Color.getColors())
+				for(Shape s : Shape.getShapes()){
 					stack.add(new Tile(c, s));
 					System.out.println(stack.get(stack.size() - 1));
 				}
@@ -100,7 +134,8 @@ public class Board{
 	 * 		Tile of the LocalPlayer that he wants to switch
 	 * @return Tile the tile that the LocalPlayer will receive.
 	 */
-	public Tile switchTile(Tile tile) throws EmptyTileStackException{
+	//TODO JML
+	public Tile switchTile(Tile tile) throws EmptyTileStackException{ //TODO check current
 		if(stack.size() == 0) throw new EmptyTileStackException();
 		else {
 			Tile result = stack.get(0);
@@ -110,7 +145,14 @@ public class Board{
 		}
 	}
 
+	/**
+	 * Gets the size of the stack of the board.
+	 *
+	 * @return
+	 * 		Int amount of tiles in stack.
+	 */
 	//@ pure
+	//TODO JML
 	public int getStackSize(){
 		return stack.size();
 	}

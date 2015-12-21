@@ -1,5 +1,7 @@
 package qwirkle.tile;
 
+import sun.security.provider.SHA;
+
 /**
  * Created by martijn on 18-12-15.
  */
@@ -8,9 +10,9 @@ public class Tile{
 	private Color color;
 	private Shape shape;
 
-	public Tile(Color arg0, Shape arg1){
-		this.color = arg0;
-		this.shape = arg1;
+	public Tile(Color c, Shape s){
+		this.color = c;
+		this.shape = s;
 	}
 
 	/**
@@ -36,5 +38,9 @@ public class Tile{
 	@Override
 	public String toString(){
 		return "Tile has color " + color + " and shape " + shape;
+	}
+
+	public static Tile getEmptyTile(){
+		return new Tile(Color.NONE, Shape.NONE);
 	}
 }

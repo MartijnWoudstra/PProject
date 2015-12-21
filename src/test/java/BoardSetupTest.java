@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 import qwirkle.Board;
+import qwirkle.player.HumanPlayer;
+import qwirkle.player.Player;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -9,11 +11,15 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class BoardSetupTest {
 
-    Board board;
+    public Board board;
+    public Player player;
+    public Player[] players;
     public int STACKSIZE_INITIAL = 108;
 
     @Before
     public void setup(){
+        players = new Player[1];
+        players[0] = new HumanPlayer("test");
         board = new Board();
     }
 
