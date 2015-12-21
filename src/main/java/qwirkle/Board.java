@@ -55,7 +55,7 @@ public class Board{
 	*/
 	private void setEmptyMatrix(){
 		Tile tile = new Tile(Color.NONE, Shape.NONE); //HOW TO
-		for(int i = 0; i < Game.BOARD_COLUMS * Game.BOARD_ROWS; i++)
+		for(int i = 0; i < Game.BOARD_COLUMS - 1; i++)
 			for(int j = 0; j < Game.BOARD_COLUMS - 1; j++)
 				matrix[i][j] = tile;
 
