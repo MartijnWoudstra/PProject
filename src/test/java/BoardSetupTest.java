@@ -1,10 +1,8 @@
-package test.java;
-
-import main.java.qwirkle.Board;
 import org.junit.Before;
 import org.junit.Test;
+import qwirkle.Board;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by Martijn on 18-Dec-15.

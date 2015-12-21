@@ -1,4 +1,4 @@
-package main.java.qwirkle.exception;
+package qwirkle.exception;
 
 /**
  * Created by Martijn on 18-Dec-15.
@@ -7,5 +7,4 @@ package main.java.qwirkle.exception;
 /**
  * Exception thrown when the game stack is empty.
  */
-public class EmptyTileStackException extends Exception {
-}
+public class EmptyTileStackException extends Exception{}
