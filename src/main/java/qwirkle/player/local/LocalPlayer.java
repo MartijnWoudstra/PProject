@@ -1,6 +1,7 @@
-package qwirkle.player;
+package qwirkle.player.local;
 
 import qwirkle.Board;
+import qwirkle.player.Player;
 import qwirkle.tile.Tile;
 
 /**
@@ -8,7 +9,7 @@ import qwirkle.tile.Tile;
  */
 public abstract class LocalPlayer extends Player{
 
-	protected Tile[] hand;
+	protected Tile[] hand; //TODO can other player get this now?
 
 	/**
 	 * Determines the move of a player.

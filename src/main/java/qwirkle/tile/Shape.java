@@ -19,10 +19,6 @@ public enum Shape{
 		id = identifier;
 	}
 
-	public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
-		return id;
-	}
-
 	@Deprecated //Only used for testing
 	public static Shape getRandomShape(){
 		Random rand = new Random();
@@ -36,6 +32,10 @@ public enum Shape{
 	 */
 	public static Shape[] getShapes(){
 		return new Shape[]{Shape.CIRCLE, Shape.DIAMOND, Shape.SQUARE, Shape.CLOVER, Shape.STAR, Shape.NINJASTAR};
+	}
+
+	public char getChar(){ //TODO discuss types of enum during protocol meeting
+		return id;
 	}
 
 	@Override

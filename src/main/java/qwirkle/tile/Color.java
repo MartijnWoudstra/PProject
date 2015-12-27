@@ -19,10 +19,6 @@ public enum Color{
 		id = identifier;
 	}
 
-	public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
-		return id;
-	}
-
 	@Deprecated //Only used for testing
 	public static Color getRandomColor(){
 		Random random = new Random();
@@ -36,6 +32,10 @@ public enum Color{
 	 */
 	public static Color[] getColors(){
 		return new Color[]{Color.RED, Color.ORANGE, Color.BLUE, Color.PURPLE, Color.YELLOW, Color.GREEN};
+	}
+
+	public char getChar(){ //TODO discuss types of enum during protocol meeting
+		return id;
 	}
 
 	@Override

@@ -1,0 +1,8 @@
+Moet players in board of game.
+Game: Makkelijk te extracten van main args.
+Board: Current player voor placeTile
+
+Player.hand visibility ?
+
+Swappen met pot is random, dus server moet dit handelen (anders andere resultaten).
+

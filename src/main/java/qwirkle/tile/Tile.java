@@ -37,8 +37,4 @@ public class Tile{
 	public String toString(){
 		return "Tile has color " + color + " and shape " + shape;
 	}
-
-	public static Tile getEmptyTile(){
-		return new Tile(Color.NONE, Shape.NONE);
-	}
 }

@@ -1,8 +1,5 @@
 package qwirkle;
 
-import qwirkle.player.HumanPlayer;
-import qwirkle.player.Player;
-
 /**
  * Created by martijn on 21-12-15.
  */

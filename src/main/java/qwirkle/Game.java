@@ -1,8 +1,8 @@
 package qwirkle;
 
 import qwirkle.annotation.Unfinished;
-import qwirkle.player.HumanPlayer;
 import qwirkle.player.Player;
+import qwirkle.player.local.HumanPlayer;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class Game{
 	public static final int BOARD_ROWS = 5; //TODO Discuss during protocol meeting
 	public static final int BOARD_COLUMS = BOARD_ROWS;
 	public static final int MIDDLE_TILE = Board.index(BOARD_COLUMS / 2, BOARD_ROWS / 2);
-	public static final int MAX_PLAYERS = 8;
+	public static final int MAX_PLAYERS = 8; //TODO Discuss during protocol meeting
 	private Board board;
 
 	// @ private invariant players.length() <= Game.MAX_PLAYERS;
@@ -35,6 +35,13 @@ public class Game{
 	}
 
 
+	/**
+	 * Extracts the players from the program arguments.
+	 * Exact implementation comes later
+	 * @param args
+	 * 		String[] program arguments
+	 * @return Player[] of all players.
+	 */
 	@Unfinished(value = "To extract the players from args[]. This is discussed during Protocol meeting. Also order is discussed.", priority = Unfinished.Priority.LOW)
 	private Player[] extractPlayers(String[] args){
 		Player[] playerList = new Player[args.length];
@@ -125,7 +132,7 @@ public class Game{
 	 */
 	// ensures current < players.length();
 	// @ pure
-	public int getCurrentPlayerAsInt(){
+	public int getCurrentPlayerAsInteger(){
 		return current;
 	}
 }

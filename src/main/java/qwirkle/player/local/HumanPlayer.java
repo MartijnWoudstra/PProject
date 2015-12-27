@@ -1,4 +1,4 @@
-package qwirkle.player;
+package qwirkle.player.local;
 
 import qwirkle.Board;
 import qwirkle.Game;
@@ -9,6 +9,7 @@ import qwirkle.tile.Tile;
  */
 public class HumanPlayer extends LocalPlayer{
 
+	private Tile[] hand;
 	private String name;
 
 	public HumanPlayer(String playerName){

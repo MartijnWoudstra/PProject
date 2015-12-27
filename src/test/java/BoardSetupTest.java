@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import qwirkle.Board;
-import qwirkle.player.HumanPlayer;
+import qwirkle.player.local.HumanPlayer;
 import qwirkle.player.Player;
 
 import static junit.framework.TestCase.assertEquals;

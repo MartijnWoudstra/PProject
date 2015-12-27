@@ -1,7 +1,6 @@
-package qwirkle.player;
+package qwirkle.player.local;
 
 import qwirkle.Board;
-import qwirkle.Game;
 import qwirkle.tile.Tile;
 
 /**
@@ -10,9 +9,10 @@ import qwirkle.tile.Tile;
 public class ComputerPlayer extends LocalPlayer{
 
 	private String name;
+	private Tile[] hand;
 
 	public ComputerPlayer(String playerName){
-		hand = new Tile[Game.MAX_HAND_SIZE]; //TODO oncreate new hand.
+		this.hand = super.hand;
 		name = playerName;
 	}
 
