@@ -1,7 +1,5 @@
 package qwirkle.tile;
 
-import sun.security.provider.SHA;
-
 /**
  * Created by martijn on 18-12-15.
  */

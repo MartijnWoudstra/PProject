@@ -1,7 +1,6 @@
 package qwirkle;
 
 import qwirkle.exception.EmptyTileStackException;
-import qwirkle.player.Player;
 import qwirkle.tile.Color;
 import qwirkle.tile.Shape;
 import qwirkle.tile.Tile;
@@ -47,9 +46,9 @@ public class Board{
 	 * Used when board is reset.
 	 */
 	/* @ ensures \forall(
-	 	int i; 0 <= i < BOARD_COLUMS {
+	 	int i; 0 <= i < BOARD_COLUMS - 1 {
 	 		\forall(
-	 		int j; 0 <= j < BOARD_COLUMS;
+	 		int j; 0 <= j < BOARD_COLUMS - 1;
 	 		matrix[i][j] == Tile.getEmptyTile();
 	 	}
 	*/
@@ -64,6 +63,7 @@ public class Board{
 	/**
 	 * Converts a row and colum to an index
 	 * NOTE: First row and col are int 0
+	 *
 	 * @param row
 	 * 		Int row
 	 * @param col
@@ -148,8 +148,7 @@ public class Board{
 	/**
 	 * Gets the size of the stack of the board.
 	 *
-	 * @return
-	 * 		Int amount of tiles in stack.
+	 * @return Int amount of tiles in stack.
 	 */
 	//@ pure
 	//TODO JML

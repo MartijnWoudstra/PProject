@@ -31,12 +31,13 @@ public enum Color{
 
 	/**
 	 * Returns all colors, except Color.NONE
-	 * @return
-	 * 		Color[] of all possible Colors.
+	 *
+	 * @return Color[] of all possible Colors.
 	 */
 	public static Color[] getColors(){
 		return new Color[]{Color.RED, Color.ORANGE, Color.BLUE, Color.PURPLE, Color.YELLOW, Color.GREEN};
 	}
+
 	@Override
 	public String toString(){
 		return "" + id;

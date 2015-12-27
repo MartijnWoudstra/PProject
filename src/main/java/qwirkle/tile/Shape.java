@@ -1,7 +1,5 @@
 package qwirkle.tile;
 
-import sun.security.provider.SHA;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -20,6 +18,7 @@ public enum Shape{
 	Shape(char identifier){
 		id = identifier;
 	}
+
 	public char getCharFromTile(){ //TODO discuss types of enum during protocol meeting
 		return id;
 	}
@@ -32,8 +31,8 @@ public enum Shape{
 
 	/**
 	 * Returns all shapes, except Shape.None
-	 * @return
-	 * 		Shape[] of all possible Shapes.
+	 *
+	 * @return Shape[] of all possible Shapes.
 	 */
 	public static Shape[] getShapes(){
 		return new Shape[]{Shape.CIRCLE, Shape.DIAMOND, Shape.SQUARE, Shape.CLOVER, Shape.STAR, Shape.NINJASTAR};

@@ -1,8 +1,8 @@
 package qwirkle;
 
-import qwirkle.exception.EmptyTileStackException;
+import qwirkle.annotation.Unfinished;
+import qwirkle.player.HumanPlayer;
 import qwirkle.player.Player;
-import qwirkle.tile.Tile;
 
 import java.util.Scanner;
 
@@ -24,13 +24,24 @@ public class Game{
 	private Player[] players;
 
 	// @ private invariant 0 <= current  && current < NUMBER_PLAYERS;
-	private int current; //TODO NULL;
+	private int current;
 
 	// @ requires playerArray != null && 0 < playerArray.length();
-	public Game(Player[] playerArray){
-		players = playerArray;
+	public Game(String[] args){
+		players = extractPlayers(args);
+		current = 0;
 		board = new Board();
 		start();
+	}
+
+
+	@Unfinished(value = "To extract the players from args[]. This is discussed during Protocol meeting. Also order is discussed.", priority = Unfinished.Priority.LOW)
+	private Player[] extractPlayers(String[] args){
+		Player[] playerList = new Player[args.length];
+		for(int i = 0; i < args.length; i++)
+			//TODO check args for number of players (MAX_PLAYERS)
+			playerList[i] = new HumanPlayer(args[i]);
+		return playerList;
 	}
 
 	/**
@@ -48,24 +59,24 @@ public class Game{
 
 	/**
 	 * Prompts if the game needs to be restarted
+	 *
 	 * @param prompt
 	 * 		String message to print
 	 * @param yes
 	 * 		String the user needs to type to answer yes
 	 * @param no
 	 * 		String the user needs to type to answer no
-	 * @return
-	 * 		boolean true if user types yes, false if user types no
+	 * @return boolean true if user types yes, false if user types no
 	 */
 	//@ requires promt != null && yes != null && no != null;
 	private boolean promtRestart(String prompt, String yes, String no){
 		String answer;
-		do {
+		do{
 			System.out.print(prompt);
-			try (Scanner scanner = new Scanner(System.in)) {
+			try(Scanner scanner = new Scanner(System.in)){
 				answer = scanner.hasNextLine() ? scanner.nextLine() : null;
 			}
-		} while (answer == null || (!answer.equals(yes) && !answer.equals(no)));
+		}while(answer == null || (!answer.equals(yes) && !answer.equals(no)));
 		return answer.equals(yes);
 	}
 
@@ -83,6 +94,7 @@ public class Game{
 	 * Loop for what a player can do in his turn.
 	 * Sub loop for the game.
 	 */
+	@Unfinished(value = "Playloop is not defined yet.", priority = Unfinished.Priority.LOW)
 	private void play(){
 		//TODO
 	}
@@ -99,8 +111,7 @@ public class Game{
 	/**
 	 * Gets the current player
 	 *
-	 * @return
-	 * 		Player current player.
+	 * @return Player current player.
 	 */
 	// @ pure
 	public Player getCurrentPlayer(){
@@ -109,8 +120,8 @@ public class Game{
 
 	/**
 	 * Gets the current player as index of the players array.
-	 * @return
-	 * 		Int index of player in player array.
+	 *
+	 * @return Int index of player in player array.
 	 */
 	// ensures current < players.length();
 	// @ pure
