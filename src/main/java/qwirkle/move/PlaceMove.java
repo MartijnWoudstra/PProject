@@ -36,13 +36,11 @@ public class PlaceMove implements Move{
 	@Override
 	public boolean confirm(){
 		Board b = board.deepCopy();
-		for(int i = 0; i < tiles.length; i++){
+		for(int i = 0; i < tiles.length; i++)
 			if(!b.placeTile(tiles[i], rows[i], colums[i])) //TODO on dummy board.
 				return false;
-		}
-		for(int i = 0; i < tiles.length; i++){
+		for(int i = 0; i < tiles.length; i++)
 			board.placeTile(tiles[i], rows[i], colums[i]);
-		}
 		return true;
 	}
 

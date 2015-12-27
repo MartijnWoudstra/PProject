@@ -70,9 +70,8 @@ public class Board{
 	private void fillStack(){
 		for(int i = 0; i < 3; i++)
 			for(Color c : Color.getColors())
-				for(Shape s : Shape.getShapes()){
+				for(Shape s : Shape.getShapes())
 					stack.add(new Tile(c, s));
-				}
 		shuffleStack();
 	}
 
@@ -136,7 +135,8 @@ public class Board{
 	 */
 	//TODO JML
 	public Tile switchTile(Tile tile) throws EmptyTileStackException{ //TODO check current
-		if(stack.size() == 0) throw new EmptyTileStackException();
+		if(stack.size() == 0)
+			throw new EmptyTileStackException();
 		else {
 			Tile result = stack.get(0);
 			stack.add(tile);
@@ -172,7 +172,8 @@ public class Board{
 	 * @return Boolean true if tile has been placed, otherwise false.
 	 */
 	public boolean placeTile(Tile tile, int row, int col){
-		if(getField(row, col).equals(NONE_TILE) && isValidMove(tile, row, col)) return false;
+		if(getField(row, col).equals(NONE_TILE) && isValidMove(tile, row, col))
+			return false;
 		setField(tile, row, col);
 		return true;
 	}
