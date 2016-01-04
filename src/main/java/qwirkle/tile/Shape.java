@@ -15,6 +15,11 @@ public enum Shape{
 
 	private char id;
 
+	/**
+	 * Sets the identifier for a Shape
+	 * @param identifier
+	 * 		Char identifier of the Shape.
+     */
 	Shape(char identifier){
 		id = identifier;
 	}
@@ -34,6 +39,10 @@ public enum Shape{
 		return new Shape[]{Shape.CIRCLE, Shape.DIAMOND, Shape.SQUARE, Shape.CLOVER, Shape.STAR, Shape.NINJASTAR};
 	}
 
+	/**
+	 * Returns the Char that belongs to the current Shape object
+	 * @return Char identifier
+     */
 	public char getChar(){ //TODO discuss types of enum during protocol meeting
 		return id;
 	}

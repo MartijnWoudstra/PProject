@@ -5,7 +5,14 @@ package qwirkle.move;
  */
 public interface Move{
 
+	/**
+	 * Confirms that the move is complete, and sends it to the server.
+	 * @return Boolean if move has been accepted and executed.
+     */
 	boolean confirm();
 
+	/**
+	 * Removes all moves from the current object, to start again.
+	 */
 	void removeMove();
 }

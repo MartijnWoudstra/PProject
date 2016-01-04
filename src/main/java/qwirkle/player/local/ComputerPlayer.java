@@ -1,6 +1,7 @@
 package qwirkle.player.local;
 
 import qwirkle.Board;
+import qwirkle.Game;
 import qwirkle.tile.Tile;
 
 /**
@@ -8,11 +9,13 @@ import qwirkle.tile.Tile;
  */
 public class ComputerPlayer extends LocalPlayer{
 
-	private String name;
-	private Tile[] hand;
-
+	/**
+	 * Creates a ComputerPlayer object.
+	 * @param playerName
+	 * 		String name of the player. Used in GUI/TUI
+     */
 	public ComputerPlayer(String playerName){
-		this.hand = super.hand;
+		hand = new Tile[Game.MAX_HAND_SIZE];
 		name = playerName;
 	}
 

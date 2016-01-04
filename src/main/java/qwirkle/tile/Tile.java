@@ -8,6 +8,13 @@ public class Tile{
 	private Color color;
 	private Shape shape;
 
+	/**
+	 * Creates a tile object
+	 * @param c
+	 * 		Color object which the tile should have
+	 * @param s
+	 * 		Shape object which the tile should have
+     */
 	public Tile(Color c, Shape s){
 		this.color = c;
 		this.shape = s;

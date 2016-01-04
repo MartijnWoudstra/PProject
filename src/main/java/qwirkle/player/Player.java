@@ -5,5 +5,8 @@ package qwirkle.player;
  */
 public abstract class Player{
 
+	/**
+	 * Name of the player, used for TUI/GUI
+	 */
 	public String name;
 }

@@ -28,6 +28,12 @@ public class Board{
 	// matrix.length() == Game.BOARD_COLUMS;
 	// (\forall int i; 0 <= i < Game.BOARD_COLUMS; matrix[i].length() == Game.BOARD_ROWS
 	// }
+
+	/**
+	 * Creates the board object.
+	 * Also creates a stack, and a matrix.
+	 * Calles reset();
+	 */
 	public Board(){
 		stack = new ArrayList<Tile>();
 		matrix = new Tile[Game.BOARD_COLUMS][Game.BOARD_ROWS]; //TODO Discuss during protocol meeting

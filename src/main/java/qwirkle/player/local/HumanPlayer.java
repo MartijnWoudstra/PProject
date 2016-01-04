@@ -9,9 +9,11 @@ import qwirkle.tile.Tile;
  */
 public class HumanPlayer extends LocalPlayer{
 
-	private Tile[] hand;
-	private String name;
-
+	/**
+	 * Creates a HumanPlayer.
+	 * @param playerName
+	 * 		String name of the player. Used in GUI/TUI
+     */
 	public HumanPlayer(String playerName){
 		hand = new Tile[Game.MAX_HAND_SIZE];
 		name = playerName;

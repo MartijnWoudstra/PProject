@@ -15,6 +15,11 @@ public enum Color{
 
 	private char id;
 
+	/**
+	 * Sets the identifier for a Color
+	 * @param identifier
+	 * 		Char identifier of the Color
+	 */
 	Color(char identifier){
 		id = identifier;
 	}
@@ -34,6 +39,10 @@ public enum Color{
 		return new Color[]{Color.RED, Color.ORANGE, Color.BLUE, Color.PURPLE, Color.YELLOW, Color.GREEN};
 	}
 
+	/**
+	 * Returns the Char that belongs to the current Color object
+	 * @return Char identifier
+	 */
 	public char getChar(){ //TODO discuss types of enum during protocol meeting
 		return id;
 	}
