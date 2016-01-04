@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MartijnWoudstra/PProject.svg?branch=master)](https://travis-ci.org/MartijnWoudstra/PProject)
+
 # Qwirkle
 
 This game is a project for the module 1B for the study Computer Engineering at the University of Twente.

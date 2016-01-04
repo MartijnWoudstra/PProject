@@ -7,4 +7,5 @@ package qwirkle.exception;
 /**
  * Exception thrown when the game stack is empty.
  */
-public class EmptyTileStackException extends Exception{}
+public class EmptyTileStackException extends Exception {
+}

@@ -14,17 +14,24 @@ public class BoardSetupTest{
 	public Board board;
 	public Player player;
 	public Player[] players;
-	public int STACKSIZE_INITIAL = 108;
+	public static final String HUMAN_PLAYER_NAME = "myName";
+	public static  final int STACKSIZE_INITIAL = 108;
 
 	@Before
 	public void setup(){
 		players = new Player[1];
-		players[0] = new HumanPlayer("test");
+		players[0] = new HumanPlayer(HUMAN_PLAYER_NAME);
+		player = players[0];
 		board = new Board();
 	}
 
 	@Test
 	public void stackTest(){
 		assertEquals(STACKSIZE_INITIAL, board.getStackSize());
+	}
+
+	@Test
+	public void nameTest(){
+		assertEquals(player.name, HUMAN_PLAYER_NAME);
 	}
 }
